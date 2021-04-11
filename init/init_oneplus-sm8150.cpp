@@ -50,4 +50,126 @@ void property_override(char const prop[], char const value[]) {
 }
 
 void vendor_load_properties() {
+  int project_name = stoi(android::base::GetProperty("ro.boot.project_name", ""));
+  int rf_version = stoi(android::base::GetProperty("ro.boot.rf_version", ""));
+  switch (project_name) {
+    case 18857:
+      /* OnePlus 7 */
+      switch (rf_version) {
+        case 1:
+          /* China */
+          property_override("ro.product.model", "GM1900");
+          break;
+        case 3:
+          /* India*/
+          property_override("ro.product.model", "GM1901");
+          break;
+        case 4:
+          /* Europe */
+          property_override("ro.product.model", "GM1903");
+          break;
+        case 5:
+        default:
+          /* Global / US Unlocked */
+          property_override("ro.product.model", "GM1905");
+          break;
+      }
+      break;
+    case 18821:
+      /* OnePlus 7 Pro */
+      switch (rf_version) {
+        case 1:
+          /* China */
+          property_override("ro.product.model", "GM1910");
+          break;
+        case 3:
+          /* India */
+          property_override("ro.product.model", "GM1911");
+          break;
+        case 4:
+          /* Europe */
+          property_override("ro.product.model", "GM1913");
+          break;
+        case 5:
+        default:
+          /* Global / US Unlocked */
+          property_override("ro.product.model", "GM1917");
+          break;
+      }
+      break;
+    case 18831:
+      /* OnePlus 7 Pro T-Mobile */
+      property_override("ro.product.model", "GM1915");
+      break;
+    case 18865:
+      /* OnePlus 7T */
+      switch (rf_version) {
+        case 1:
+          /* China */
+          property_override("ro.product.model", "HD1900");
+          break;
+        case 3:
+          /* India */
+          property_override("ro.product.model", "HD1901");
+          break;
+        case 4:
+          /* Europe */
+          property_override("ro.product.model", "HD1903");
+          break;
+        case 5:
+        default:
+          /* Global / US Unlocked */
+          property_override("ro.product.model", "HD1905");
+          break;
+      }
+      break;
+    case 19863:
+      /* OnePlus 7T T-Mobile */
+      property_override("ro.product.model", "HD1907");
+      break;
+    case 19801:
+      /* OnePlus 7T Pro */
+      switch (rf_version) {
+        case 1:
+          /* China */
+          property_override("ro.product.model", "HD1910");
+          break;
+        case 3:
+          /* India */
+          property_override("ro.product.model", "HD1911");
+          break;
+        case 4:
+          /* Europe */
+          property_override("ro.product.model", "HD1913");
+          break;
+        case 5:
+        default:
+          /* Global / US Unlocked */
+          property_override("ro.product.model", "HD1917");
+          break;
+      }
+      break;
+    case 18825:
+    case 18827:
+      /* OnePlus 7 Pro NR */
+      switch (rf_version) {
+        case 1:
+          /* Europe */
+          property_override("persist.radio.multisim.config", "ssss");
+          property_override("ro.product.model", "GM1920");
+          break;
+        case 5:
+        default:
+          /* Global / US Unlocked */
+          property_override("persist.radio.multisim.config", "ssss");
+          property_override("ro.product.model", "GM1925");
+          break;
+      }
+      break;
+    case 19861:
+      /* OnePlus 7T Pro NR */
+      property_override("persist.radio.multisim.config", "ssss");
+      property_override("ro.product.model", "HD1925");
+      break;
+  }
 }
