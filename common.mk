@@ -174,7 +174,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     init.class_main.sh \
     init.crda.sh \
-    init.cust.rc \
     init.mdm.sh \
     init.oem.rc \
     init.qcom.class_core.sh \
